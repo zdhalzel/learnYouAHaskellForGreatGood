@@ -1,0 +1,9 @@
+-- Haskell Playground 1.0
+nums = [8,6,4,1,7,3,5]
+numsTree = foldr treeInsert Emptree nums
+numsTree
+
+treeElem 8 numsTree
+treeElem 100 numsTree
+treeElem 1 numsTree
+treeElem 10 numsTree

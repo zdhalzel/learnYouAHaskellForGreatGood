@@ -1,0 +1,23 @@
+-- Haskell Playground 1.0
+"Starting at Typeclasses 102"
+
+Red == Red
+Red == Yellow
+elem Red [Red, Yellow, Green]
+[Red, Yellow, Green]
+
+yesno $ length []
+yesno "haha"
+yesno ""
+yesno $ Just 0
+yesno True
+yesno Emptree
+yesno []
+yesno [0,0,0]
+:t yesno
+
+yesnoIf [] "YEAH!" "NO!"
+yesnoIf [2,3,4] "YEAH!" "NO!"
+yesnoIf True "YEAH!" "NO!"
+yesnoIf (Just 500) "YEAH!" "NO!"
+yesnoIf Nothing "YEAH!" "NO!"

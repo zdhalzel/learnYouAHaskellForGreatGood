@@ -1,0 +1,19 @@
+-- Haskell Playground 1.0
+:t Circle
+:t Rect
+
+surface $ Circle (Pt 10 20) 10
+surface $ Rect (Pt 0 0) (Pt 100 100)
+
+Circle (Pt 10 20) 5
+Rect (Pt 50 230) (Pt 60 90)
+
+map (Circle (Pt 10 20)) [4, 5, 6, 6]
+
+surface $ Rect (Pt 0 0) (Pt 100 100)
+surface $ Circle (Pt 0 0) 24
+
+nudge (Circle (Pt 34 34) 10) 5 10
+
+nudge (baseRect 40 100) 60 23
+

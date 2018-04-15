@@ -1,0 +1,209 @@
+-- Haskell Playground 1.0
+intersperse '.' "MONKEY"
+intersperse [0] [[1],[2],[3],[4],[5]]
+
+intercalate " " ["hey", "there", "guys"]
+intercalate [0,0,0] [[1,2,3],[4,5,6],[7,8,9]]
+
+transpose [[1,2,3],[4,5,6],[7,8,9]]
+transpose ["hey","there","guys"]
+
+-- (3x^2 + 5x + 9) + (10x^3 + 9) + (8x^3 + 5x^2 + x - 1)
+transpose [[0,3,5,9],[10,0,0,9],[8,5,1,(-1)]]
+
+map sum $ transpose [[0,3,5,9],[10,0,0,9],[8,5,1,(-1)]]
+
+concat ["foo","bar","car"]
+
+concat [[3,4,5],[2,3,4],[2,1,1]]
+
+map (replicate 4) [1..4]
+map (:[0]) [1..4]
+
+concatMap (replicate 4) [1..4]
+concatMap (:[0]) [1..4]
+
+and $ map (>4) [5,6,7,8]
+all (>4) [5,6,7,8]
+
+and $ map (>5) [5,6,7,8]
+all (>5) [5,6,7,8]
+
+or $ map (>3) [1,2,3,4]
+any (>3) [1,2,3,4]
+
+
+any (>3) [(-1),0,1,2,3]
+
+take 10 $ iterate (*2) 1
+
+take 3 $ iterate (++ "haha") "haha"
+
+splitAt 3 "heyman"
+
+splitAt 100 "heyman"
+
+splitAt (-3) "HeyMan"
+
+(\ (a,b) -> [a,b]) $ splitAt 3 "HeyMan"
+
+intercalate " " . (\ (a,b) -> [a,b]) $ splitAt 3 "HeyMan"
+
+takeWhile (>3) [6,5,4,3,2,1,2,3,4,5,4,3,2,1]
+
+takeWhile (/=' ') "This is a sentence"
+
+sum $ takeWhile (<10000) $ map (^3) [1..]
+
+dropWhile (/=' ') "This is a sentence"
+
+dropWhile (<3) [1,2,2,2,3,4,5,4,3,2,1]
+
+(a,b) = splitAt 3 "foobar"
+
+b ++ a
+
+b !! 0 : (dropWhile (== 'b') b) ++ a
+
+stock = [(994.4,2008,9,0), (995.2,2008,9,1), (999.2,2008,9,2),(1000.0,2008,9,3), (1001.4,2008,9,4), (998.3,2008,9,5)]
+
+thousandOrLess = (\ (val,year,month,date) -> (<= 1000) val)
+
+head $ dropWhile thousandOrLess stock
+
+(fw,rest) = span (/=' ') "This is a sentence"
+"First word: " ++ fw ++ ", the rest: " ++ rest
+
+break (== 4) [1,2,3,4,5,6,7]
+span (/= 4) [1,2,3,4,5,6,7]
+
+sort [8,5,3,2,1,6,4,2]
+
+sort "This will be sorted soon"
+
+lon = [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+
+lon
+
+group lon
+
+sort lon
+
+group . sort $ lon
+
+map (\ l @ (x:xs) -> (x,length l)) . group . sort $ lon
+
+w = "w00t"
+init w
+tail w
+
+inits w
+tails w
+
+zip (inits w) (tails w)
+
+search "hey" "heyHello"
+isIn "hey" "heyHello"
+
+search "hey" "hellOhey"
+isIn "hey" "hellOhey"
+
+isIn "hey" "helloHey"
+search "hey" "helloHey"
+
+map (take 3) $ tails "heyHello"
+
+isInfixOf "cat" "im a cat burglar"
+isInfixOf "Cat" "im a cat burglar"
+not $ isInfixOf "cats" "im a cat burglar"
+
+isPrefixOf "hey" "hey there!"
+
+isPrefixOf "hey" "oh hey there!"
+
+isSuffixOf "there" "oh hey there!"
+
+isSuffixOf "there" "oh hey there"
+
+isUpper = flip elem ['A'..'Z']
+names = "BOBsidneyMORGANeddy"
+partition isUpper names
+
+partition (>3) [1,3,5,6,3,2,1,0,3,7]
+
+find (>4) [1..6]
+find (not.isUpper) names
+find (>9) [1..9]
+
+find (not.thousandOrLess) stock
+
+:t elemIndex
+
+elemIndex 4 [1..6]
+elemIndex 4 [1..]
+elemIndex 10 [1..9]
+
+elemIndices 4 $ replicate 5 4
+elemIndices 4 $ [5..100]
+
+space = ' '
+
+elemIndices space "Where are the spaces?"
+
+findIndex (==4) [5,3,2,1,6,4]
+findIndex (==9) $ repeat 9
+findIndices isUpper "Where Are The Caps?"
+
+zipWith3 (\ x y z -> x + y + z) [1,2,3] [4,5,2,2] [2,2,3]
+
+twos = repeat 2
+
+zip4 [2,3,3] twos [5,5,3,7,9,11] twos
+
+the_lines = lines "first line\nsecond line\nthird line"
+the_lines
+unlines the_lines
+
+numUniques []
+numUniques[0]
+numUniques [1,2,3,4]
+
+numUniques' []
+numUniques' [0]
+numUniques' [1,2,3,4]
+
+nub [1,2,3]
+nub [3,2,1,2,3,1,5,2]
+
+sort [4,2,1,4,5]
+sort [1,1,1,2,1]
+sort [0]
+sort []
+sort $ sort [31,22,13,4] ++ sort [4,3,2,1]
+
+unwords ["hey","there","mate"]
+
+a = words "Hey these are the words in this sentence"
+b = words "Hey     these     are     the     words     in     this     sentence"
+
+a
+b
+a == b
+
+group [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+
+sentence = "boom bip bip boom boom"
+
+words sentence 
+
+group $ words sentence
+
+sort [5,4,3,7,2,1]
+
+sort $ words sentence
+
+group . sort $ words sentence
+
+wordNums sentence
+wordNums "wa wa wee wa"
+

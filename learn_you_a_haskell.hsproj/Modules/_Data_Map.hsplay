@@ -1,0 +1,103 @@
+-- Haskell Playground 1.0
+--attempt 1
+phoneBookList = 
+  [ 
+    ("betty", "555-2938") ,
+    ("bonnie","452-2928") ,
+    ("patsy","493-2328")  ,
+    ("lucille","2052928") ,
+    ("wendy","939-8282")  ,
+    ("penny","853-2492") 
+  ]
+    
+findKey "patsy" phoneBookList
+findKey "betsy" phoneBookList
+findKey "penny" phoneBookList
+findKey "wilma" phoneBookList
+
+pbMap = Map.fromList phoneBookList
+
+
+Map.fromList [(1,2),(3,4),(3,2),(5,5)]
+Map.empty
+
+Map.insert 3 100 Map.empty
+
+Map.insert 5 600 $ Map.insert 4 200 $ Map.insert 3 100 Map.empty
+
+Map.insert 5 600 . Map.insert 4 200 . Map.insert 3 100 $ Map.empty
+
+Map.null Map.empty
+
+Map.null $ Map.fromList [(2,3),(5,5)]
+
+Map.size Map.empty
+Map.size $ Map.fromList [(2,4),(3,3),(4,2),(5,4),(6,4)]
+
+Map.singleton 3 "Steve:"
+myMap = Map.insert 2 "Willsy" $ Map.singleton 3 "Steves"
+
+Map.lookup 2 myMap
+
+Map.member 3 myMap
+Map.member 11 myMap
+
+Map.map (*100) $ Map.fromList [(1,1),(2,4),(3,9)]
+
+Map.filter isUpper $ Map.fromList [(1,'a'),(2,'A'),(3,'b'),(4,'B')]
+
+Map.toList myMap
+
+phoneBookList
+
+Map.toList $ Map.fromList phoneBookList
+
+(Map.toList $ Map.fromList phoneBookList) == phoneBookList -- The order has changed
+
+Map.keys myMap
+Map.keys pbMap
+
+Map.elems myMap
+Map.elems pbMap
+
+phoneBook = 
+  [
+    ("betty", "555-2938"),
+    ("betty", "342-2492"),
+    ("bonnie","452-2928"),
+    ("patsy","493-2928"),
+    ("patsy","943-2929"),
+    ("patsy","827-9162"),
+    ("lucille","205-2928"),
+    ("wendy","939-8282"),
+    ("penny","853-2492"),
+    ("penny","555-2111")
+  ]
+  
+length phoneBook
+
+Map.size $ Map.fromList phoneBook -- Uh oh, we lost some
+
+phoneMap = phoneBookToMap phoneBook
+
+phoneMap
+
+Map.lookup "patsy" $ phoneMap
+Map.lookup "wendy" $ phoneMap
+Map.lookup "betty" $ phoneMap
+
+Map.fromListWith max [(4,3),(3,5),(2,100),(4,29),(3,22),(2,11),(4,22),(3,15)]
+
+Map.fromListWith (+) [(4,3),(3,5),(2,100),(4,29),(3,22),(2,11),(4,22),(3,15)]
+
+Map.insertWith (+) 3 100 $ Map.fromList [(3,4),(5,103),(6,339)]
+
+
+inPhoneBook "betty" "555-2938" phoneBook
+
+Right 20
+
+Left "w00t"
+
+:t Right 'a'
+:t Left True

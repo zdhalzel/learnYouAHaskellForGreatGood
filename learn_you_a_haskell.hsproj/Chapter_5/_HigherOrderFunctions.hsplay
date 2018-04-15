@@ -1,0 +1,183 @@
+-- Haskell Playground 1.0
+
+-- Ch. 5 
+
+max' 4 5
+(max' 4) 5
+
+:t max'
+
+multThree 3 5 9
+(((multThree 3) 5) 9)
+
+let multTwoWithNine = multThree 9
+
+multTwoWithNine 3 4
+
+compareWithHundred 99
+compareWithHundred 101
+compareWithHundred 100
+
+divideByTen 10
+divideByTen 100
+divideByTen pi
+
+divideTenBy 10
+divideTenBy 100
+divideTenBy pi
+
+isUpperAlphanum 'Z'
+isUpperAlphanum 'a'
+isUpperAlphanum 'b'
+isUpperAlphanum 'B'
+isUpperAlphanum '1'
+
+subtract5from 10
+subtract5from 5
+subtract5from 0
+subtract5from (-5)
+
+subtractFrom5 10
+subtractFrom5 (-5)
+
+applyTwice subtract5from 7
+applyTwice subtract5from 20
+
+applyTwice subtractFrom5 100
+applyTwice subtractFrom5 (-73)
+
+applyTwice (+3) 10
+applyTwice (++ " HAHA") "HEY"
+applyTwice ("HAHA " ++) "HEY"
+applyTwice (multThree 2 2) 9
+applyTwice (3:) [1]
+applyTwice (applyTwice (3:)) [1]
+applyTwice (applyTwice (applyTwice (3:))) [1]
+
+zipWith' (+) [4,2,5,6] [2,6,2,3]
+
+zipWith' max [6,3,2,1] [7,3,1,5]
+
+zip [6,3,2,1] [7,3,1,5]
+
+zipWith' (++) ["foo ", "bar ", "baz "] ["fighters", "hoppers", "aldrin"]
+
+zipWith' (*) (replicate 5 2) [1..]
+
+-- the outer function takes the inner function, a function that takes two lists and multiplies them, as well as two lists of lists. It applies the inner function to the inner lists. 
+zipWith' (zipWith' (*)) [[1,2,3],[3,5,6],[2,3,4]] [[3,2,2],[3,4,5],[5,4,3]] 
+
+zip [1,2,3,4,5] "hello"
+
+flip' zip [1,2,3,4,5] "hello"
+
+zipWith' div [2,2..] [10,8..2]
+zipWith' (flip' div) [2,2..] [10,8..2]
+
+zipWith' subtract [2,2..] [10,8..2]
+zipWith' (flip' subtract) [2,2..] [10,8..2]
+
+map' (+3) [1,5,3,1,6]
+[x + 3 | x <- [1,5,3,1,6]]
+
+map' (++ "!! ") ["BIFF", "BANG", "POW"]
+[x ++ "!! " | x <- ["BIFF", "BANG", "POW"] ]
+
+map' (replicate 3) [3..6]
+[replicate 3 x | x <- [3..6]]
+
+map' (map' (^2)) [[1,2],[3,4,5,6],[7,8]]
+[ map (^2) x | x <- [ [1,2], [3,4,5,6], [7,8] ] ]
+[ [x^2 | x <- xs] | xs <- [ [1,2], [3,4,5,6], [7,8] ] ]
+
+
+map' fst [(1,2),(3,5),(6,3),(2,6),(2,5)]
+[ fst x | x <- [(1,2),(3,5),(6,3),(2,6),(2,5)] ]
+
+filter' (>3) [1,5,3,2,1,6,4,3,2,1]
+[ z | z <- [1,5,3,2,1,6,4,3,2,1], z > 3 ]
+
+filter' (<3) (take 20 [(-1)..])
+[z | z <- take 20 [(-1)..], z < 3]
+
+filter (==3) (3:[1,2,3,4,5,4,3,2,1]) ++ replicate 3 3
+
+[z | z <- [1,2,3,4,5], z == 3 || z > 4]
+
+filter even [1..10]
+[z | z <- [1..10], even z]
+
+
+filter notNull [[],[],[1,2,3],[],[3,4,5],[2,2],[],[],[]]
+[g | g <- [[1,2,3],[],[3,4,5],[2,2],[],[],[]], null g]
+[g | g <- [[1,2,3],[],[3,4,5],[2,2],[],[],[]], not (null g)]
+[g | g <- [[1,2,3],[],[3,4,5],[2,2],[],[],[]], notNull g]
+
+-- why does this need backticks?
+
+filter (flip elem ['a'..'z']) "u LaUgH aT mE BeCaUsE I aM dIfFeRent"
+
+-- This is nicer
+filter isLower "u LaUgH aT mE BeCaUsE I aM dIfFeRent"
+
+[ x | x <- "u LaUgH aT mE BeCaUsE I aM dIfFeRent", elem x ['a'..'z'] ]
+
+[ x | x <- "u LaUgH aT mE BeCaUsE I aM dIfFeRent", isLower x]
+
+[x | x <- "u LaUgH aT mE BeCaUsE I aM dIfFeRent", isLower x]
+
+filter isUpper "i LAuGh at you bEcause u R all the same"
+
+filter (<15) $ filter even [1..20]
+
+[x | x <- [1..20], x < 15, even x]
+
+largestDivisible
+
+99554 / 3829
+
+largestDiv' 3829
+
+-- map largestDiv' [10..100]
+
+takeWhile (/='t') "elephants know how to party"
+
+sum . takeWhile (<10000) . filter odd $ map (^2) [1..]
+
+sum $ takeWhile (<10000) [n^2 | n <- [1..], odd (n^2)]
+
+sum $ takeWhile (<10000) [m | m <- [n^2 | n <- [1..]], odd m]
+
+collatz 1
+collatz 10
+collatz 30
+collatz 100
+map collatz [1..10]
+
+
+numLongChains
+numLongChains'
+
+let listOfFuns = map (*) [0..]
+(listOfFuns !! 4) 5 -- 4 * 5
+(listOfFuns !! 100) 5 -- 100 * 5
+(listOfFuns !! 0) 5
+
+-- Equivalent:
+map (+3) [1,6,3,2]
+map (\x -> x + 3) [1,6,3,2]
+
+zipWith (\ a b -> (div (a * 30 + 3) b)) [5,4..1] [1..5]
+
+-- Runtime error if a pattern match fails in a lambda
+map (\ (a,b) -> a + b) [(1,2),(3,5),(6,3),(2,6),(2,5)] 
+
+map (flip'' subtract 20) [1..4]
+
+zipWith (++) ["love you", "love me"] ["i ", "you "]
+
+"love you" ++ "i "
+
+(flip (++) "love you") "i "
+
+zipWith (flip'' (++)) ["love you", "love me", "happy family"] ["i ", "you ", "we're a "]

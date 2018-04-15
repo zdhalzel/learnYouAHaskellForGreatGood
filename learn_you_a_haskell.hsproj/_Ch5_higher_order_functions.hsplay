@@ -1,0 +1,84 @@
+-- Haskell Playground 1.0
+max 4 5
+(max 4) 5
+:t max
+
+multThree 3 5 9
+(((multThree 3) 5) 9)
+
+let multTwoWithNine = multThree 9
+
+multTwoWithNine 3 4
+
+compareWithHundred 99
+compareWithHundred 101
+compareWithHundred 100
+
+divideByTen 10
+divideByTen 100
+divideByTen pi
+
+divideTenBy 10
+divideTenBy 100
+divideTenBy pi
+
+isUpperAlphanum 'Z'
+isUpperAlphanum 'a'
+isUpperAlphanum '1'
+
+subtract5from 10
+subtract5from 5
+subtract5from 0
+
+subtractFrom5 10
+subtractFrom5 (-5)
+
+1+1
+
+applyTwice subtract5from 10
+applyTwice subtract5from 20
+
+applyTwice subtractFrom5 10
+applyTwice subtractFrom5 0
+
+applyTwice (+3) 10
+applyTwice (++ " HAHA") "HEY"
+applyTwice (multThree 2 2) 9
+applyTwice (3:) [1]
+applyTwice (applyTwice (3:)) [1]
+applyTwice (applyTwice (applyTwice (3:))) [1]
+
+zipWith' (+) [4,2,5,6] [2,6,2,3]
+zipWith' max [6,3,2,1] [7,3,1,5]
+zip [6,3,2,1] [7,3,1,5]
+zipWith' (++) ["foo ", "bar ", "baz "] ["fighters", "hoppers", "aldrin"]
+zipWith' (*) (replicate 5 2) [1..]
+
+-- the outer function takes the inner function, a function that takes two lists and multiplies them, as well as two lists of lists. It applies the inner function to each inner list. 
+zipWith' (zipWith' (*)) [[1,2,3],[3,5,6],[2,3,4]] [[3,2,2],[3,4,5],[5,4,3]] 
+
+zip [1,2,3,4,5] "hello"
+flip' zip [1,2,3,4,5] "hello"
+zipWith div [2,2..] [10,8..2]
+zipWith (flip' div) [2,2..] [10,8,6,4,2]
+
+map' (+3) [1,5,3,1,6]
+map' (++ "!! ") ["BIFF", "BANG", "POW"]
+map' (replicate 3) [3..6]
+map' (map' (^2)) [[1,2],[3,4,5,6],[7,8]]
+
+map' fst [(1,2),(3,5),(6,3),(2,6),(2,5)]
+
+filter' (>3) [1,5,3,2,1,6,4,3,2,1]
+filter' (<3) (take 20 [1..])
+
+filter (==3) [1,2,3,4,5]
+filter even [1..10]
+
+filter notNull [[1,2,3],[],[3,4,5],[2,2],[],[],[]]
+
+-- why does this need backticks?
+-
+filter (`elem` ['a'..'z']) "u LaUgH aT mE BeCaUsE I aM dIfFeRent"
+filter (`elem` "u LaUgH aT mE BeCaUsE I aM dIfFeRent") ['a'..'z']
+

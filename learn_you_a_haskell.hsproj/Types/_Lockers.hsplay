@@ -1,0 +1,29 @@
+-- Haskell Playground 1.0
+Right' 20
+Left' "w00t"
+Left "w00t"
+:t Right 'a'
+:t Left True
+
+
+  
+lockerLookup 101 lockers
+lockerLookup 100 lockers
+lockerLookup 102 lockers
+lockerLookup 110 lockers
+lockerLookup 105 lockers
+
+Emptty
+Cons 5 Emptty
+Cons 4 $ Cons 5 Emptty
+Cons 3 . Cons 4 $ Cons 5 Emptty
+
+Empty
+5 :-: Empty
+2 :-: 3 :-: 4 :-: Empty
+
+a = 3 :-: 4 :-: 5 :-: Empty
+b = 6 :-: 7 :-: Empty
+a
+b
+a .++ b

@@ -1,0 +1,153 @@
+-- Haskell Playground 1.0
+:t 'a'
+:t True
+:t "HELLO!"
+:t (True, 'a')
+:t 4 == 5
+:t ('a','b','c')
+:t []
+:t ()
+:t ([])
+:t [()]
+:t head
+:t fst
+:t snd
+:t (==)
+:t (<)
+
+"hey" == ['h','e','y']
+
+show 4
+
+read "True" || False
+read "8.3" + 4.7
+(read "8.3" :: Float) + 4
+8.3 + 4
+
+[LT .. GT]
+
+succ (-2)
+succ 4.3
+succ 'B'
+succ 4
+
+minBound :: Int
+
+maxBound :: Int
+
+minBound :: Char
+
+maxBound :: Char
+
+maxBound :: Bool
+minBound :: Bool
+
+maxBound :: (Bool, Int, Char)
+
+read "5" :: Int
+read "5" :: Float
+
+--(5 :: Int) * (6 :: Integer)
+
+
+length [(),(),(),()]
+
+factoriaL 50
+circumference 4.0
+circumference' 4.0
+
+lucky 5
+lucky 7
+lucky 12
+
+sayMe 1
+map(sayMe) [0..6]
+
+factorial 0
+factorial 2
+factorial 7
+factorial 8
+
+addVectors (3.0,4.0) (4.1,3.4)
+addVectors (1,2) (1,3)
+
+a = (1,2,3)
+
+first a
+
+second a
+
+third a
+
+-- pattern matching
+xs = [(1,3),(4,3),(2,4),(5,3),(5,6),(3,1)]
+
+[a + b | (a,b) <- xs]
+
+
+head' [4,5,6]
+head' "Hello"
+
+tell [1]
+tell []
+tell [[]]
+tell [[[]]]
+tell [True, False]
+tell [(), ()]
+tell [[1,2],[2,3,1]]
+tell [111,2,3,4]
+tell [False, False, False, True]
+
+capital "Zach"
+capital "wHoa!"
+
+badAdd [100,200,1]
+-- badAdd [100,200] -- this stinks
+
+firstLetter "Dracula"
+firstLetter ['A']
+firstLetter ""
+
+bmiTell 0 1
+bmiTell 1000 5
+bmiTell 1000 6
+bmiTell 1000 7
+
+max' 5 6
+max' 6 5
+
+myCompare 5 6
+myCompare 6 5
+myCompare 5 5
+
+greet "Juan"
+greet "Mike"
+
+initials "Uncle" "Jonny"
+
+initials "Zach" "Halzel"
+
+
+calcBmis [(1,2),(3,4),(1000,4),(1000,6)]
+
+cylinder 5 5
+
+4 * (let a = 9 in a + 1) + 2
+
+[let square x = x * x in 
+  (square 5, square 3, square 2)]
+
+(let a = 100; b = 200; c = 300; in a * b * c, 
+ let foo = "Hey "; bar = "there!"; in foo ++ bar)
+
+-- dismantle a tuple and bind its components
+(let (a,b,c) = (1,2,3) in a + b + c) * 100
+
+
+calcBmis [(0,1),(1000,5),(1000,6),(1000,7)]
+calcBmis' [(0,1),(1000,5),(1000,6),(1000,7)]
+
+let zoot x y z = x * y * z
+zoot 3 9 2
+
+show (let boot x y z = x * y + z in boot 3 4 2)

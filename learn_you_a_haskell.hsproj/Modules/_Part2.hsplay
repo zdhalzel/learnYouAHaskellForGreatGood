@@ -1,0 +1,57 @@
+-- Haskell Playground 1.0
+nub [1,2,3,4,3,2,1,2,3,4,3,2,1]
+
+nub "Lots of words and stuff"
+
+delete 'h' "hey there ghang!"
+
+delete 'h' . delete 'h' $ "hey there ghang!"
+
+delete 'h' . delete 'h' . delete 'h' $ "hey there ghang!"
+
+[1..10] \\ [2,5,9]
+
+"Im a big baby" \\ "big"
+
+union "hey man" "man what's up"
+
+u = union [1..7] [5..10]
+
+i = intersect [1..7] [5..10]
+u
+i
+
+u \\ i
+
+lon' = [3,5,1,2,8,2]
+insert 4 lon'
+
+insert 4 $ sort lon'
+
+xs = [1..6]
+
+sum xs / genericLength xs
+-- sum xs / length xs
+
+nubBy
+deleteBy
+unionBy
+intersectBy
+groupBy
+
+values = [-4.3,-2.4, -1.2, 0.4, 2.3, 5.9, 10.5, 29.1, 5.3, -2.4, -14.5, 2.9, 2.3, -5.7]
+
+groupBy sameSign values
+
+on_ (==) (> 0)
+
+lengthCompare = on compare length
+sumCompare = on compare sum
+productCompare = on compare product
+
+xs = [[5,4,5,4,4],[1,2,3],[3,4,5,4,3],[],[2],[2,2]]
+sortBy lengthCompare xs
+
+sortBy sumCompare xs
+
+sortBy productCompare xs

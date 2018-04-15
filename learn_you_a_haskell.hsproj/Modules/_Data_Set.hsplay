@@ -1,0 +1,57 @@
+-- Haskell Playground 1.0
+text1 = "I just had an anime dream. Anime... Reality... Are they so different?"
+
+text2 = "The old man left his garbage can out and now his trash is all over my lawn!"
+
+set1 = Set.fromList text1
+set2 = Set.fromList text2
+
+set1
+set2
+
+Set.intersection set1 set2
+
+Set.difference set1 set2
+
+Set.difference set2 set1
+
+Set.union set1 set2
+
+Set.null Set.empty
+Set.null $ Set.fromList [3,4,5,5,4,3]
+
+Set.size $ Set.fromList [3,4,5,5,4,3]
+
+Set.singleton 9
+
+Set.insert 4 $ Set.fromList [9,3,8,1]
+
+Set.insert 4 $ Set.singleton 4
+
+Set.insert 8 $ Set.fromList [10,9..4]
+
+Set.delete 4 $ Set.fromList [3,4,5,4,3,4,5]
+
+oneTo5 = Set.fromList [1..5]
+
+Set.isSubsetOf (Set.fromList [2,3,4]) oneTo5
+Set.fromList [2,3,4] `Set.isSubsetOf` oneTo5
+
+Set.isSubsetOf oneTo5 oneTo5
+oneTo5 `Set.isSubsetOf` oneTo5
+
+Set.isProperSubsetOf oneTo5 oneTo5
+
+Set.isSubsetOf (Set.fromList [2,3,4,8]) oneTo5
+
+Set.filter odd $ Set.fromList [3,4,5,6,7,2,3,4]
+
+Set.map (+1) $ Set.fromList [3,4,5,6,7,2,3,4]
+
+setNub "HEY WHATS CRACKALACKIN"
+
+nub "HEY WHATS CRACKALACKIN"
+
+setNub $ nub "HEY WHATS CRACKALACKIN"
+
+nub $ setNub "HEY WHATS CRACKALACKIN"

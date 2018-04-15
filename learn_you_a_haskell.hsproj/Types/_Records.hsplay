@@ -1,0 +1,80 @@
+-- Haskell Playground 1.0
+guy = Person "Buddy" "Finklestein" 43 184.2 "526-2928" "Chocolate"
+
+guy
+
+:t flavor
+:t firstName
+
+myCar = Car { company = "Ford", model = "Mustang", year = 1967 }
+
+Just "Haha"
+Just 84
+:t Just "Haha"
+:t Nothing
+Just 10 :: Maybe Double
+
+tellCar myCar
+
+Vec 3 5 8 `vplus` Vec 9 2 8
+
+Vec 3 5 8 `vplus` Vec 9 2 8 `vplus` Vec 0 2 3
+
+vmult (Vec 3 9 7) 10
+
+Vec 4 9 5 `scalarMult` Vec 9.0 2.0 4.0
+
+Vec 2 9 3 `vmult` (Vec 4 9 5 `scalarMult` Vec 9 2 4)
+
+mikeD = Person' {firstName' = "Michael", lastName' = "Diamond", age' = 43}
+
+adRock = Person' {firstName' = "Adam", lastName' = "Horovitz", age' = 41}
+
+mca = Person' {firstName' = "Adam", lastName' = "Yauch", age' = 44}
+
+mca == adRock
+mikeD == adRock
+mikeD == mikeD
+mikeD == Person' {firstName' = "Michael", lastName' = "Diamond", age' = 43}
+
+beastieBoys = [mca, adRock, mikeD]
+elem mikeD beastieBoys
+
+mikeD
+
+"mikeD is: " ++ show mikeD
+
+read "Person' {firstName' = \"Michael\", lastName' =\"Diamond\", age' = 43 }" :: Person'
+
+read "Person' {firstName' = \"Michael\", lastName' =\"Diamond\", age' = 43 }" == mikeD
+
+compare True False
+
+Nothing < Just 100
+
+Nothing < Just ( last [10,9..] )
+
+Just 3 `compare` Just 2
+
+Just 100 > Just 50
+
+Wednesday
+show Wednesday
+read "Saturday" :: Day
+
+Saturday == Sunday
+Saturday == Saturday 
+Saturday > Friday
+compare Monday Wednesday
+
+minBound :: Day
+maxBound :: Day
+
+succ Monday
+pred Saturday
+succ Saturday
+[ Wednesday .. Saturday ]
+
+[minBound..maxBound] :: [Day]
+
+

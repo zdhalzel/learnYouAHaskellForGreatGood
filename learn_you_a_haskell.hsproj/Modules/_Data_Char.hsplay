@@ -1,0 +1,96 @@
+-- Haskell Playground 1.0
+isControl -- checks whether a character is a control character
+
+isSpace -- checks whether a character is white-space, tabs, newlines, etc.
+
+isLower -- checks whether a character is lower-cased
+
+isUpper -- checks whether a character is upper cased
+
+isAlpha -- checks whether a character is a letter
+
+isAlphaNum -- checks whether a character is a letter or a number
+
+isPrint -- checks whether a character is printable
+
+isDigit -- checks whether a character is a digit
+
+isOctDigit -- checks whether a character is an octal digit
+
+isHexDigit -- checks whether a character is a hex digit
+
+isLetter -- checks whether a character is a letter
+
+isMark -- checks for unicode mark characters, used for French
+
+isNumber -- checks whether a character is numeric
+
+isPunctuation -- checks whether a character is punctuation
+
+isSymbol -- checks whether a character is a fancy symbol
+
+isSymbol '$'
+isSymbol '|'
+
+isSeparator -- checks for Unicode spaces and separators
+
+isAscii -- checks whether a character is ASCII
+
+isLatin1 -- within first 256 characters of unicode
+
+isAsciiUpper -- isAscii && isUpper
+
+isAsciiLower -- isAscii && isUpper
+
+all isAlphaNum "bobby283"
+
+all isAlphaNum "eddy the fish!"
+
+hey = " \t \t \t hey   \t \t \t   guys   \t \t \t   it's   \t \t \t   me"
+
+words hey
+
+groupBy (on (==) isSpace) hey
+
+filtered = filter (not . any isSpace) . groupBy (on (==) isSpace) $ hey
+
+filtered == words hey
+
+generalCategory ' '
+generalCategory 'A'
+generalCategory 'a'
+generalCategory '.'
+generalCategory '9'
+map generalCategory " \t\nA9?|"
+
+c = ' '
+generalCategory c == Space
+
+toUpper -- convert an alpha character to upper-case
+toLower -- convert an alpha character to lower-case
+toTitle -- converts a character to title-case (?)
+
+digitToInt -- converts a character to an Int. character must be 0-9, a-f, or A-F
+
+map digitToInt "34538"
+map digitToInt "FF85AB"
+
+intToDigit -- reverse of digitToInt
+
+toUpper $ intToDigit 15
+intToDigit 5
+
+ord 'a'
+chr 97
+ord $ chr 97
+chr $ ord 'a'
+map ord "abcdefgh"
+
+encode 3 "Heeeey"
+encode 4 "Heeeeey"
+xmas = encode 5 "Marry Christmas! Ho ho ho!!"
+
+decode 5 xmas
+
+decode 3 $ encode 3 "hey"
+
